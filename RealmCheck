@@ -7,6 +7,7 @@ import sys
 import ConfigParser
 
 # Check for more less than 2 args, then check for -h, then check for less than 3
+# Look at using ArgumentParser to clean up the flag checking
 if len(sys.argv) < 2:
     print("Please provide arguments\nRealmCheck.py [realm_name] [flag]\nRealmCheck.py -h for help")
     exit()
@@ -23,7 +24,7 @@ if sys.argv[1] == '-h':
         exit()
 
 if len(sys.argv) < 3:
-    print("Please provide arguments\nRealmCheck.py [realm_name] [flag]\nRealmCheck.py -h for help")
+    print("Please provide arguments\nRealmCheck.py [realm_name] [flag]\n'RealmCheck.py -h' for help")
     exit()
 if sys.argv[1] == '-h':
     print("Usage:\nRealmCheck.py [realm_name] [flag]")
@@ -70,6 +71,6 @@ if flag == '-b':
     print data['realms'][0]['name'] + "'s battlegroup is: " + data['realms'][0]['battlegroup']
     exit()
 else:
-    print("Invalid option")
+    print("Invalid option, please try again. Use 'RealmCheck -h' for help")
     exit()
 
